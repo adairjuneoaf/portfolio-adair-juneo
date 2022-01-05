@@ -28,7 +28,7 @@ export const Container = styled.section`
     div {
       border-radius: 30px;
       padding: 0.5rem 1rem;
-      background: ${(props) => props.theme.colors.tertiary};
+      background: ${(props) => props.theme.colors.secondary};
       color: ${(props) => props.theme.colors.text};
       font-weight: 700;
       font-size: 0.625rem;

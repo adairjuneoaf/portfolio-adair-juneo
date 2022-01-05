@@ -20,7 +20,7 @@ export const Container = styled.section`
 
     margin: 1rem 0;
 
-    border: 2px solid #00ff00;
+    border: 2px solid ${(props) => props.theme.colors.secondary};
   }
 
   h3 {

@@ -17,7 +17,7 @@ export default function ExperienceProfile() {
           <p>Analista de Sistemas e Projetos</p>
         </ul>
         <ul>
-          <li>Renon, Costa e CIA LTDA</li>
+          <li>Renon, Costa &amp; CIA LTDA</li>
           <p>2017 - 2019</p>
           <p>Técnico em Informática</p>
         </ul>

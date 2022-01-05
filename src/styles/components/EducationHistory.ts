@@ -17,19 +17,18 @@ export const Container = styled.section`
     padding: 0 0 1.5rem 1.5rem;
   }
 
-  .experiences {
+  .education {
     padding: 0 3.5rem;
-
     ul {
       li {
         font-weight: 500;
         font-size: 1.125rem;
-        line-height: 2;
+        line-height: 1.2;
         color: ${(props) => props.theme.colors.secondary};
       }
       p {
         font-size: 1rem;
-        line-height: 1.2;
+        line-height: 1.5;
       }
     }
   }
