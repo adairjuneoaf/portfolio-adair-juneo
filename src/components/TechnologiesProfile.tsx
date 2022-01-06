@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "../styles/components/TechnologiesProfile";
 
-export default function TechnologiesProfile() {
+const TechnologiesProfile: React.FC = () => {
   return (
     <Container>
       <h3>Tecnologias</h3>
@@ -18,4 +18,6 @@ export default function TechnologiesProfile() {
       </div>
     </Container>
   );
-}
+};
+
+export default TechnologiesProfile;

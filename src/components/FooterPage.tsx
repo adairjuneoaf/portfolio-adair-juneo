@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container } from "../styles/components/FooterPage";
 
-export default function FooterPage() {
+const FooterPage: React.FC = () => {
   return (
     <Container>
       <h4>
@@ -10,4 +10,6 @@ export default function FooterPage() {
       </h4>
     </Container>
   );
-}
+};
+
+export default FooterPage;

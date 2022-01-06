@@ -33,4 +33,12 @@ export const Container = styled.section`
       }
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 100%;
+  }
 `;

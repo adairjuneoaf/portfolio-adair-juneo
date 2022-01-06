@@ -1,7 +1,8 @@
 import React from "react";
+
 import { Container } from "../styles/components/ExperienceProfile";
 
-export default function ExperienceProfile() {
+const ExperienceProfile: React.FC = () => {
   return (
     <Container>
       <h3>Experiências</h3>
@@ -24,4 +25,6 @@ export default function ExperienceProfile() {
       </div>
     </Container>
   );
-}
+};
+
+export default ExperienceProfile;

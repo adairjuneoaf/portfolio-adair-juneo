@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 
 import { Container } from "../styles/components/Profile";
 
-export default function Profile() {
+const Profile: React.FC = () => {
   const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf");
 
   if (error) {
@@ -21,4 +21,6 @@ export default function Profile() {
       <p>{data.bio}</p>
     </Container>
   );
-}
+};
+
+export default Profile;

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container } from "../styles/components/EducationHistory";
 
-export default function EducationHistory() {
+const EducationHistory: React.FC = () => {
   return (
     <Container>
       <h3>Educação</h3>
@@ -25,4 +25,6 @@ export default function EducationHistory() {
       </div>
     </Container>
   );
-}
+};
+
+export default EducationHistory;

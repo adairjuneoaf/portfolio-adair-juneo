@@ -15,7 +15,7 @@ interface CardProjectProps {
   topics: Array<string>;
 }
 
-export default function CardProject({ id, description, html_url, name, language, topics }: CardProjectProps) {
+const CardProject: React.FC<CardProjectProps> = ({ id, description, html_url, name, language, topics }) => {
   return (
     <Container>
       <div className="headerProject">
@@ -51,4 +51,6 @@ export default function CardProject({ id, description, html_url, name, language,
       </div>
     </Container>
   );
-}
+};
+
+export default CardProject;

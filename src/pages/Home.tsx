@@ -10,6 +10,7 @@ import TechnologiesProfile from "../components/TechnologiesProfile";
 import ExperienceProfile from "../components/ExperienceProfile";
 import EducationHistory from "../components/EducationHistory";
 import HeaderProjects from "../components/HeaderProjects";
+import SpinnerLoading from "../components/SpinnerLoading";
 import DataProfile from "../components/DataProfile";
 import CardProject from "../components/CardProject";
 import FooterPage from "../components/FooterPage";
@@ -24,7 +25,7 @@ interface CardProjectProps {
   topics: Array<string>;
 }
 
-export default function Home() {
+const Home: React.FC = () => {
   const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf/repos");
 
   if (error) {
@@ -32,7 +33,7 @@ export default function Home() {
   }
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <SpinnerLoading />;
   }
 
   return (
@@ -55,4 +56,6 @@ export default function Home() {
       <FooterPage />
     </Container>
   );
-}
+};
+
+export default Home;

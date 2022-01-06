@@ -31,4 +31,12 @@ export const Container = styled.section`
       color: ${(props) => props.theme.colors.secondary};
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 100%;
+  }
 `;

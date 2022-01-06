@@ -5,7 +5,7 @@ interface TechnologiesProjectProps {
   topics: Array<string>;
 }
 
-export default function TechnologiesProject({ topics }: TechnologiesProjectProps) {
+const TechnologiesProject: React.FC<TechnologiesProjectProps> = ({ topics }) => {
   return (
     <Container>
       <div>
@@ -15,4 +15,6 @@ export default function TechnologiesProject({ topics }: TechnologiesProjectProps
       </div>
     </Container>
   );
-}
+};
+
+export default TechnologiesProject;

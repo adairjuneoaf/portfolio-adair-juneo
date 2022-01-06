@@ -10,7 +10,7 @@ import Mail from "../assets/svg/mail.svg";
 import MapPin from "../assets/svg/map-pin.svg";
 import Twitter from "../assets/svg/twitter.svg";
 
-export default function DataProfile() {
+const DataProfile: React.FC = () => {
   return (
     <Container>
       <div>
@@ -68,4 +68,6 @@ export default function DataProfile() {
       </div>
     </Container>
   );
-}
+};
+
+export default DataProfile;
