@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 28rem;
-  height: 15rem;
+  height: 20rem;
 
   padding: 1.875rem;
 
@@ -26,7 +26,7 @@ export const Container = styled.section`
     gap: 0.75rem;
 
     img {
-      width: 48px;
+      width: 40px;
     }
 
     h4 {
@@ -59,6 +59,12 @@ export const Container = styled.section`
           font-weight: 400;
           font-size: 0.875rem;
           color: ${(props) => props.theme.colors.text};
+
+          transition: color 0.3s;
+
+          &:hover {
+            color: ${(props) => props.theme.colors.secondary};
+          }
         }
       }
     }

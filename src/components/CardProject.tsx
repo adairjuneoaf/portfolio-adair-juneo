@@ -1,6 +1,7 @@
 import React from "react";
 
 import GitHubImage from "../assets/svg/github.svg";
+import DefaultIconProject from "../assets/svg/folder.svg";
 
 import { Container } from "../styles/components/CardProject";
 
@@ -16,7 +17,11 @@ export default function CardProject({ id, description, html_url, name, language 
   return (
     <Container>
       <div className="titleProject">
-        <img src="https://raw.githubusercontent.com/adairjuneoaf/letmeask/master/.github/icon.svg" alt="Icone que representa o projeto." />
+        {name === "404" ? (
+          <img src={DefaultIconProject} alt="Icone que representa o projeto." />
+        ) : (
+          <img src={`https://raw.githubusercontent.com/adairjuneoaf/${name}/master/.github/icon.svg`} alt="Icon" />
+        )}
         <h4>{name}</h4>
       </div>
       <div className="descriptionProject">
