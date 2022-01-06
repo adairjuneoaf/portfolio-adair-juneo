@@ -15,6 +15,15 @@ import CardProject from "../components/CardProject";
 import FooterPage from "../components/FooterPage";
 import Profile from "../components/Profile";
 
+interface CardProjectProps {
+  id: number;
+  description: string;
+  html_url: string;
+  name: string;
+  language: string;
+  topics: Array<string>;
+}
+
 export default function Home() {
   const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf/repos");
 
@@ -39,22 +48,7 @@ export default function Home() {
           </div>
           <div className="profileProjects">
             <HeaderProjects />
-            <div className="cardsProjects">
-              {data
-                .map((data: any) => {
-                  return (
-                    <CardProject
-                      key={data.id}
-                      id={data.id}
-                      description={data.description}
-                      html_url={data.url}
-                      name={data.name}
-                      language={data.language}
-                    ></CardProject>
-                  );
-                })
-                .reverse()}
-            </div>
+            <div className="cardsProjects">{data.map((data: CardProjectProps) => <CardProject key={data.id} {...data} />).reverse()}</div>
           </div>
         </Content>
       </ApiGitHubProvider>

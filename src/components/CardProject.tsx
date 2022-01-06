@@ -4,6 +4,7 @@ import GitHubImage from "../assets/svg/github.svg";
 import DefaultIconProject from "../assets/svg/folder.svg";
 
 import { Container } from "../styles/components/CardProject";
+import TechnologiesProject from "./TechnologiesProject";
 
 interface CardProjectProps {
   id: number;
@@ -11,18 +12,21 @@ interface CardProjectProps {
   html_url: string;
   name: string;
   language: string;
+  topics: Array<string>;
 }
 
-export default function CardProject({ id, description, html_url, name, language }: CardProjectProps) {
+export default function CardProject({ id, description, html_url, name, language, topics }: CardProjectProps) {
   return (
     <Container>
-      <div className="titleProject">
-        {name === "404" ? (
+      <div className="headerProject">
+        <div className="titleProject">
           <img src={DefaultIconProject} alt="Icone que representa o projeto." />
-        ) : (
-          <img src={`https://raw.githubusercontent.com/adairjuneoaf/${name}/master/.github/icon.svg`} alt="Icon" />
-        )}
-        <h4>{name}</h4>
+          <h4>{name}</h4>
+        </div>
+
+        <div className="technologiesProject">
+          <TechnologiesProject topics={topics} />
+        </div>
       </div>
       <div className="descriptionProject">
         <p>{description}</p>

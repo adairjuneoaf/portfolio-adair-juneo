@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  width: 28rem;
+  width: calc(50% - 1rem);
   height: 20rem;
 
   padding: 1.875rem;
@@ -17,20 +17,28 @@ export const Container = styled.section`
   gap: 1.25rem;
 
   cursor: default;
-  .titleProject {
+
+  .headerProject {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 
-    gap: 0.75rem;
+    .titleProject {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
 
-    img {
-      width: 40px;
-    }
+      gap: 0.75rem;
 
-    h4 {
-      font-size: 1.125rem;
+      img {
+        width: 40px;
+      }
+
+      h4 {
+        font-size: 1.125rem;
+      }
     }
   }
 
