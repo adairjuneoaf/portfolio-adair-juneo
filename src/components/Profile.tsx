@@ -1,12 +1,24 @@
 import React from "react";
+import useFetch from "../hooks/useFetch";
+
 import { Container } from "../styles/components/Profile";
 
 export default function Profile() {
+  const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf");
+
+  if (error) {
+    return <div>Erro ao carregar dados.</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Container>
-      <img src="https://pbs.twimg.com/profile_images/1224120784576225280/1YV9gtqB_400x400.jpg" alt="Imagem de perfil" />
-      <h3>Adair Juneo</h3>
-      <p>Desenvolvedor Full Stack</p>
+      <img src={data.avatar_url} alt="Imagem de perfil" />
+      <h3>{data.name}</h3>
+      <p>{data.bio}</p>
     </Container>
   );
 }

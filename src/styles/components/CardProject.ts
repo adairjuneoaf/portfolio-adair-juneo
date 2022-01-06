@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 28rem;
-  height: auto;
+  height: 15rem;
 
   padding: 1.875rem;
 
@@ -12,6 +12,7 @@ export const Container = styled.section`
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   gap: 1.25rem;
 
@@ -52,6 +53,14 @@ export const Container = styled.section`
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      p {
+        a {
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: ${(props) => props.theme.colors.text};
+        }
+      }
     }
 
     .technologies {
@@ -59,10 +68,37 @@ export const Container = styled.section`
       align-items: center;
       gap: 0.5rem;
 
-      span {
+      span.TypeScript {
         width: 12px;
         height: 12px;
         background: #007acc;
+        clip-path: circle();
+      }
+
+      span.JavaScript {
+        width: 12px;
+        height: 12px;
+        background: #f0db4f;
+        clip-path: circle();
+      }
+
+      span.HTML {
+        width: 12px;
+        height: 12px;
+        background: #f06529;
+        clip-path: circle();
+      }
+      span.CSS {
+        width: 12px;
+        height: 12px;
+        background: #cd6799;
+        clip-path: circle();
+      }
+
+      span.other {
+        width: 12px;
+        height: 12px;
+        background: ${(props) => props.theme.colors.secondary};
         clip-path: circle();
       }
 

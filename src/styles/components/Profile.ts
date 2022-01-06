@@ -31,6 +31,6 @@ export const Container = styled.section`
   p {
     font-size: 0.875rem;
     max-width: 16rem;
-    text-align: center;
+    text-align: justify;
   }
 `;
