@@ -26,7 +26,7 @@ interface CardProjectProps {
 }
 
 const Home: React.FC = () => {
-  const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf/repos");
+  const { data, error } = useFetch("https://api.github.com/users/adairjuneoaf/repos?sort=updated_at&order=desc");
 
   if (error) {
     return <div>Erro ao carregar dados.</div>;
@@ -49,7 +49,11 @@ const Home: React.FC = () => {
           </div>
           <div className="profileProjects">
             <HeaderProjects />
-            <div className="cardsProjects">{data.map((data: CardProjectProps) => <CardProject key={data.id} {...data} />).reverse()}</div>
+            <div className="cardsProjects">
+              {data.map((data: CardProjectProps) => (
+                <CardProject key={data.id} {...data} />
+              ))}
+            </div>
           </div>
         </Content>
       </ApiGitHubProvider>

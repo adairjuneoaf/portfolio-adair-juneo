@@ -10,7 +10,7 @@ export default function useFetch<Data = any, Error = any>(url: string) {
       return data;
     },
     {
-      refreshInterval: 600000,
+      refreshInterval: 60 * 60,
     }
   );
 
