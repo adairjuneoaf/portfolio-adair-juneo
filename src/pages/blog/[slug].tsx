@@ -4,7 +4,7 @@ import React from "react";
 const Post: NextPage = () => {
   return (
     <React.Fragment>
-      <div className="postPage"></div>
+      <div className="postPage">a</div>
     </React.Fragment>
   );
 };
