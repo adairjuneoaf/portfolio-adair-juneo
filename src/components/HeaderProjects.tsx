@@ -6,7 +6,7 @@ const HeaderProjects: React.FC = () => {
   return (
     <Container>
       <h3>Meus projetos</h3>
-      <button type="button">Ver todos</button>
+      {/* <button type="button">Ver todos</button> */}
     </Container>
   );
 };

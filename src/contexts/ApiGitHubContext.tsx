@@ -23,7 +23,7 @@ export default function ApiGitHubProvider({ children }: ApiGitHubProviderProps) 
       return <div>Loading...</div>;
     }
 
-    console.log(data);
+    //console.log(data);
     return data;
   }
   return <ApiGitHubContext.Provider value={{ ProfileData }}>{children}</ApiGitHubContext.Provider>;

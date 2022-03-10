@@ -13,14 +13,17 @@ export const Container = styled.section`
   align-items: center;
   justify-content: center;
 
-  img {
+  .imageProfile {
     border-radius: 9999px;
     width: 96px;
-    height: auto;
+    height: 96px;
 
     margin: 1rem 0;
 
     border: 2px solid ${(props) => props.theme.colors.secondary};
+    .imgPicture {
+      border-radius: 9999px;
+    }
   }
 
   h3 {

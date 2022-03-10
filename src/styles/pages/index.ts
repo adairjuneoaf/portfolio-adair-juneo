@@ -27,8 +27,9 @@ export const Content = styled.div`
   .profileProjects {
     flex: 4;
 
-    .cardsProjects {
-      margin-top: 1.875rem;
+    .cardsPublications {
+      margin-top: 1.125rem;
+      margin-bottom: 1.875rem;
       display: flex;
       flex-direction: row;
 
@@ -37,6 +38,25 @@ export const Content = styled.div`
 
       gap: 1.5rem 2rem;
     }
+
+    .cardsProjects {
+      margin-top: 1.125rem;
+      display: flex;
+      flex-direction: row;
+
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      gap: 1.5rem 2rem;
+    }
+  }
+
+  .postsPublished {
+    flex: 4;
+  }
+
+  .postPage {
+    flex: 4;
   }
 
   @media only screen and (max-width: 600px) {
@@ -98,7 +118,7 @@ export const Content = styled.div`
       flex: 4;
 
       .cardsProjects {
-        margin-top: 1.875rem;
+        margin-top: 1.125rem;
         display: flex;
         flex-direction: row;
 

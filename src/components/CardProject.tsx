@@ -1,10 +1,10 @@
 import React from "react";
 
-import GitHubImage from "../assets/svg/github.svg";
-import DefaultIconProject from "../assets/svg/folder.svg";
+import { FiFolder, FiGithub } from "react-icons/fi";
+
+import TechnologiesProject from "./TechnologiesProject";
 
 import { Container } from "../styles/components/CardProject";
-import TechnologiesProject from "./TechnologiesProject";
 
 interface CardProjectProps {
   id: number;
@@ -20,7 +20,8 @@ const CardProject: React.FC<CardProjectProps> = ({ id, description, html_url, na
     <Container>
       <div className="headerProject">
         <div className="titleProject">
-          <img src={DefaultIconProject} alt="Icone que representa o projeto." />
+          {/* <img src={DefaultIconProject} alt="Icone que representa o projeto." /> */}
+          <FiFolder fontSize={32} color={"#BB86FC"} title="Icone que representa o projeto." />
           <h4>{name}</h4>
         </div>
 
@@ -33,7 +34,7 @@ const CardProject: React.FC<CardProjectProps> = ({ id, description, html_url, na
       </div>
       <div className="footerProject">
         <div className="commits">
-          <img src={GitHubImage} alt="Icone que representa os commits do projeto." />
+          <FiGithub fontSize={24} color={"#BB86FC"} title="Id do projeto, clique para navegar até o repositório no GitHub." />
           <p>
             <a href={html_url} title="Navegar até o repositório desse projeto." target="_blank" rel="noreferrer">
               # {id}
@@ -45,7 +46,7 @@ const CardProject: React.FC<CardProjectProps> = ({ id, description, html_url, na
           {language === "JavaScript" ? <span className="JavaScript"></span> : <></>}
           {language === "HTML" ? <span className="HTML"></span> : <></>}
           {language === "CSS" ? <span className="CSS"></span> : <></>}
-          {language === null ? <span className="other"></span> : <></>}
+          {language === null ? <span className="Other"></span> : <></>}
           {language !== null ? <p>{language}</p> : <p>HTML, CSS e JS</p>}
         </div>
       </div>

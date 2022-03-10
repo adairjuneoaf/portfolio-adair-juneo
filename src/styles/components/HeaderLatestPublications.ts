@@ -35,4 +35,8 @@ export const Container = styled.section`
       background: ${(props) => props.theme.colors.tertiary};
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 1.875rem;
+  }
 `;
