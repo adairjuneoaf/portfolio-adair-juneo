@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { NextPage } from "next";
 
-import CardPublication from "../../components/CardPublication";
+// import CardPublication from "../../components/CardPublication";
 
 import { Content, Header } from "../../styles/pages/blog";
 
@@ -16,15 +16,7 @@ const PagePosts: NextPage = () => {
             <button type="button">Voltar a página de projetos</button>
           </Link>
         </Header>
-        <Content>
-          <CardPublication />
-          <CardPublication />
-          <CardPublication />
-          <CardPublication />
-          <CardPublication />
-          <CardPublication />
-          <CardPublication />
-        </Content>
+        <Content>a</Content>
       </main>
     </React.Fragment>
   );
