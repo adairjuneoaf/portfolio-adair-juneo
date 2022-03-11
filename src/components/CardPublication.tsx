@@ -5,22 +5,29 @@ import { FiCalendar, FiUser, FiClock, FiFileText } from "react-icons/fi";
 
 import { Container } from "../styles/components/CardPublication";
 
-const CardPublication: React.FC = () => {
+interface CardPublicationProps {
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+}
+
+const CardPublication: React.FC<CardPublicationProps> = ({ slug, title, publishedAt, description }) => {
   return (
     <Container>
       <div className="headerPublication">
         <div className="titlePublication">
           <FiFileText fontSize={32} color={"#BB86FC"} />
-          <Link href={"/"}>
+          <Link href={`/blog/${slug}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a title="Navegar até o post">Ipsum dolor sit amet consectetur adipisicing elit, voluptatum recusandae assumenda debitis.</a>
+            <a title="Navegar até o post">{title}</a>
           </Link>
         </div>
       </div>
       <div className="informationPublication">
         <div className="datePublication" title="Data de publicação">
           <FiCalendar fontSize={18} color={"#BB86FC"} />
-          <p>3 Mar 2022</p>
+          <p>{publishedAt}</p>
         </div>
         <div className="authorPublication" title="Autor da publicação">
           <FiUser fontSize={18} color={"#BB86FC"} />
@@ -33,10 +40,7 @@ const CardPublication: React.FC = () => {
       </div>
 
       <div className="subtitlePublication">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorum numquam voluptatem veritatis sint odit quibusdam consectetur itaque
-          perspiciatis? Rerum, repellendus? Atque reiciendis voluptates, voluptatum recusandae assumenda debitis quasi maxime.
-        </p>
+        <p>{description}</p>
       </div>
     </Container>
   );

@@ -38,7 +38,7 @@ export const Container = styled.section`
       a {
         font-size: 1.125rem;
         font-weight: 700;
-        color: ${(props) => props.theme.colors.secondary};
+        color: ${(props) => props.theme.colors.text};
 
         display: block;
         width: fit-content;
@@ -49,7 +49,7 @@ export const Container = styled.section`
         transition: color 0.2s;
 
         &:hover {
-          color: ${(props) => props.theme.colors.tertiary};
+          color: ${(props) => props.theme.colors.secondary};
         }
       }
     }
@@ -62,6 +62,10 @@ export const Container = styled.section`
     justify-content: flex-start;
 
     gap: 1rem;
+
+    .datePublication {
+      text-transform: capitalize;
+    }
 
     .datePublication,
     .authorPublication,

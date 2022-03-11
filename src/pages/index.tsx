@@ -2,10 +2,14 @@ import React from "react";
 import { GetStaticProps, NextPage } from "next";
 
 import HeaderLatestPublications from "../components/HeaderLatestPublications";
+// import SpinnerLoading from "../components/SpinnerLoading";
 import CardPublication from "../components/CardPublication";
 import HeaderProjects from "../components/HeaderProjects";
-import SpinnerLoading from "../components/SpinnerLoading";
 import CardProject from "../components/CardProject";
+import createClientPrismic from "../services/prismic";
+import { RichText } from "prismic-dom";
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
 interface CardProjectProps {
   id: number;
@@ -16,30 +20,33 @@ interface CardProjectProps {
   topics: Array<string>;
 }
 
-// interface CardPublicationProps {
-//   uid: number;
-//   title: string;
-//   subtitle: string;
-//   data_publication: string;
-//   author: string;
-// }
-
-interface HomeProps {
-  data: [];
+interface PublicationProps {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  //author: string;
 }
 
-const Home: NextPage<HomeProps> = ({ data }) => {
+interface HomeProps {
+  dataGitHub: [];
+  dataPrismic: Array<PublicationProps>;
+}
+
+const Home: NextPage<HomeProps> = ({ dataGitHub, dataPrismic }) => {
   return (
     <React.Fragment>
       <main className="profileProjects">
         <HeaderLatestPublications />
         <div className="cardsPublications">
-          <CardPublication />
-          <CardPublication />
+          {dataPrismic.map((post: PublicationProps) => (
+            <CardPublication key={post.id} {...post} />
+          ))}
         </div>
         <HeaderProjects />
         <div className="cardsProjects">
-          {data.map((data: CardProjectProps) => (
+          {dataGitHub.map((data: CardProjectProps) => (
             <CardProject key={data.id} {...data} />
           ))}
         </div>
@@ -49,19 +56,34 @@ const Home: NextPage<HomeProps> = ({ data }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://api.github.com/users/adairjuneoaf/repos?sort=updated_at&order=desc");
-  const data = await response.json();
+  const responseGitHub = await fetch("https://api.github.com/users/adairjuneoaf/repos?sort=updated_at&order=desc");
+  const dataGitHub = await responseGitHub.json();
 
-  if (response.type === "error") {
+  if (responseGitHub.type === "error") {
     return <div>Erro ao carregar dados.</div>;
   }
 
-  if (!data) {
-    return <SpinnerLoading />;
-  }
+  const prismicClient = createClientPrismic();
+
+  const responsePrismic = await prismicClient.get({
+    fetch: ["publication.title", "publication.description", "publication.content"],
+    pageSize: 2,
+  });
+
+  const dataPrismic = responsePrismic.results.map((post) => {
+    return {
+      id: post.id,
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      description: RichText.asText(post.data.description),
+      publishedAt: format(new Date(post.first_publication_date), "dd MMM yyyy", {
+        locale: ptBR,
+      }),
+    };
+  });
 
   return {
-    props: { data },
+    props: { dataGitHub, dataPrismic },
     revalidate: 60 * 60 * 4, // 4 Horas
   };
 };

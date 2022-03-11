@@ -37,6 +37,6 @@ export const Container = styled.section`
   }
 
   @media only screen and (max-width: 600px) {
-    margin-top: 1.875rem;
+    margin-top: 30px;
   }
 `;

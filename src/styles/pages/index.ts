@@ -28,26 +28,26 @@ export const Content = styled.div`
     flex: 4;
 
     .cardsPublications {
-      margin-top: 1.125rem;
-      margin-bottom: 1.875rem;
+      margin-top: 18px;
+      margin-bottom: 30px;
       display: flex;
       flex-direction: row;
 
       justify-content: flex-start;
       flex-wrap: wrap;
 
-      gap: 1.5rem 2rem;
+      gap: 24px 2rem;
     }
 
     .cardsProjects {
-      margin-top: 1.125rem;
+      margin-top: 18px;
       display: flex;
       flex-direction: row;
 
       justify-content: flex-start;
       flex-wrap: wrap;
 
-      gap: 1.5rem 2rem;
+      gap: 24px 2rem;
     }
   }
 
@@ -67,7 +67,7 @@ export const Content = styled.div`
 
     .profileProjects {
       .cardsProjects {
-        margin-top: 1.875rem;
+        margin-top: 30px;
         display: flex;
         flex-direction: column;
         gap: 1.5rem 2rem;
@@ -89,7 +89,7 @@ export const Content = styled.div`
       flex: 0;
 
       .cardsProjects {
-        margin-top: 1.875rem;
+        margin-top: 18px;
         display: flex;
         flex-direction: column;
         gap: 1.5rem 2rem;
@@ -118,14 +118,14 @@ export const Content = styled.div`
       flex: 4;
 
       .cardsProjects {
-        margin-top: 1.125rem;
+        margin-top: 18px;
         display: flex;
         flex-direction: row;
 
         justify-content: flex-start;
         flex-wrap: wrap;
 
-        gap: 1.5rem 2rem;
+        gap: 30px 2rem;
       }
     }
   }
