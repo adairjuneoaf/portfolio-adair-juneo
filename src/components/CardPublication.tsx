@@ -8,11 +8,12 @@ import { Container } from "../styles/components/CardPublication";
 interface CardPublicationProps {
   slug: string;
   title: string;
+  author: string;
   description: string;
   publishedAt: string;
 }
 
-const CardPublication: React.FC<CardPublicationProps> = ({ slug, title, publishedAt, description }) => {
+const CardPublication: React.FC<CardPublicationProps> = ({ slug, title, author, publishedAt, description }) => {
   return (
     <Container>
       <div className="headerPublication">
@@ -31,7 +32,7 @@ const CardPublication: React.FC<CardPublicationProps> = ({ slug, title, publishe
         </div>
         <div className="authorPublication" title="Autor da publicação">
           <FiUser fontSize={18} color={"#BB86FC"} />
-          <p>Adair Juneo</p>
+          <p>{author}</p>
         </div>
         <div className="readingTime" title="Tempo de leitura">
           <FiClock fontSize={18} color={"#BB86FC"} />

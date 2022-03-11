@@ -1,15 +1,19 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { GetStaticProps, NextPage } from "next";
 
-import HeaderLatestPublications from "../components/HeaderLatestPublications";
-// import SpinnerLoading from "../components/SpinnerLoading";
-import CardPublication from "../components/CardPublication";
-import HeaderProjects from "../components/HeaderProjects";
-import CardProject from "../components/CardProject";
 import createClientPrismic from "../services/prismic";
+
 import { RichText } from "prismic-dom";
+
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+
+import HeaderLatestPublications from "../components/HeaderLatestPublications";
+import CardPublication from "../components/CardPublication";
+import HeaderProjects from "../components/HeaderProjects";
+import SpinnerLoading from "../components/SpinnerLoading";
+import CardProject from "../components/CardProject";
 
 interface CardProjectProps {
   id: number;
@@ -24,9 +28,9 @@ interface PublicationProps {
   id: string;
   slug: string;
   title: string;
+  author: string;
   description: string;
   publishedAt: string;
-  //author: string;
 }
 
 interface HomeProps {
@@ -35,6 +39,12 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ dataGitHub, dataPrismic }) => {
+  const { isFallback } = useRouter();
+
+  if (isFallback) {
+    return <SpinnerLoading />;
+  }
+
   return (
     <React.Fragment>
       <main className="profileProjects">
@@ -66,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismicClient = createClientPrismic();
 
   const responsePrismic = await prismicClient.get({
-    fetch: ["publication.title", "publication.description", "publication.content"],
+    fetch: ["publication.title", "publication.description", "publication.content", "publication.author"],
     pageSize: 2,
   });
 
@@ -75,6 +85,7 @@ export const getStaticProps: GetStaticProps = async () => {
       id: post.id,
       slug: post.uid,
       title: RichText.asText(post.data.title),
+      author: RichText.asText(post.data.author),
       description: RichText.asText(post.data.description),
       publishedAt: format(new Date(post.first_publication_date), "dd MMM yyyy", {
         locale: ptBR,

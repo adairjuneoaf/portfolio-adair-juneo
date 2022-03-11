@@ -6,7 +6,7 @@ const FooterPage: React.FC = () => {
   return (
     <Container>
       <h4>
-        Programado com <span> ❤ </span> por <span>Adair Juneo</span>
+        Programado com <span title="CAFÉ!!!">☕</span> por <span>Adair Juneo</span>
       </h4>
     </Container>
   );

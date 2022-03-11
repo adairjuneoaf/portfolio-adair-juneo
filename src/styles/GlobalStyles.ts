@@ -21,6 +21,24 @@ body {
     background: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
     -webkit-font-smoothing: antialiased;
+
+    &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.colors.primary};
+    //border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.colors.secondary};
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${(props) => props.theme.colors.tertiary};
+  }
 }
 
 body, input, textarea, button{

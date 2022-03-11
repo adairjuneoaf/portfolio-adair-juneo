@@ -1,24 +1,79 @@
 import React from "react";
-import Link from "next/link";
-import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { GetStaticProps, NextPage } from "next";
 
-// import CardPublication from "../../components/CardPublication";
+import createClientPrismic from "../../services/prismic";
 
-import { Content, Header } from "../../styles/pages/blog";
+import { RichText } from "prismic-dom";
 
-const PagePosts: NextPage = () => {
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
+import CardPublication from "../../components/CardPublication";
+import SpinnerLoading from "../../components/SpinnerLoading";
+import HeaderBlog from "../../components/HeaderBlog";
+
+import { Content } from "../../styles/pages/blog";
+
+interface PublicationProps {
+  id: string;
+  slug: string;
+  title: string;
+  author: string;
+  description: string;
+  publishedAt: string;
+}
+
+interface HomeProps {
+  dataPrismic: Array<PublicationProps>;
+}
+
+const PagePosts: NextPage<HomeProps> = ({ dataPrismic }) => {
+  const { isFallback } = useRouter();
+
+  if (isFallback) {
+    return <SpinnerLoading />;
+  }
+
   return (
     <React.Fragment>
       <main className="postsPublished">
-        <Header>
-          <h3>Todas as minhas publicações e artigos</h3>
-          <Link href={"/"}>
-            <button type="button">Voltar a página de projetos</button>
-          </Link>
-        </Header>
-        <Content>a</Content>
+        <HeaderBlog isDisplayIcon={false} titleHeader={"Publicações e artigos"} />
+        <Content>
+          {dataPrismic.map((post: PublicationProps) => (
+            <CardPublication key={post.id} {...post} />
+          ))}
+        </Content>
       </main>
     </React.Fragment>
   );
 };
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismicClient = createClientPrismic();
+
+  const responsePrismic = await prismicClient.get({
+    fetch: ["publication.title", "publication.description", "publication.author"],
+    pageSize: 30,
+  });
+
+  const dataPrismic = responsePrismic.results.map((post) => {
+    return {
+      id: post.id,
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      author: RichText.asText(post.data.author),
+      description: RichText.asText(post.data.description),
+      publishedAt: format(new Date(post.first_publication_date), "dd MMM yyyy", {
+        locale: ptBR,
+      }),
+    };
+  });
+
+  return {
+    props: { dataPrismic },
+    revalidate: 60 * 60 * 4, // Horas
+  };
+};
+
 export default PagePosts;
