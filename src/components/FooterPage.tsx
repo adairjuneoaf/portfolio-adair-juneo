@@ -12,4 +12,4 @@ const FooterPage: React.FC = () => {
   );
 };
 
-export default FooterPage;
+export default memo(FooterPage);
