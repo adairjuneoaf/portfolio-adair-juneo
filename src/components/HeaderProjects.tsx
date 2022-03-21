@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Container } from "../styles/components/HeaderProjects";
 
@@ -11,4 +11,4 @@ const HeaderProjects: React.FC = () => {
   );
 };
 
-export default HeaderProjects;
+export default memo(HeaderProjects);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Container } from "../styles/components/TechnologiesProfile";
 
 const TechnologiesProfile: React.FC = () => {
@@ -20,4 +20,4 @@ const TechnologiesProfile: React.FC = () => {
   );
 };
 
-export default TechnologiesProfile;
+export default memo(TechnologiesProfile);

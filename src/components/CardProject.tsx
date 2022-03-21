@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { FiFolder, FiGithub } from "react-icons/fi";
 
@@ -54,4 +54,4 @@ const CardProject: React.FC<CardProjectProps> = ({ id, description, html_url, na
   );
 };
 
-export default CardProject;
+export default memo(CardProject);

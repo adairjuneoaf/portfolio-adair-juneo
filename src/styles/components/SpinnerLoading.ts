@@ -5,10 +5,12 @@ export const Container = styled.section`
   height: 100vh;
 
   position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 
-  background: rgba(0, 0, 0, 0.2);
+  background: transparent;
 `;

@@ -109,7 +109,7 @@ export const Container = styled.section`
         clip-path: circle();
       }
 
-      span.other {
+      span.Other {
         width: 12px;
         height: 12px;
         background: ${(props) => props.theme.colors.secondary};

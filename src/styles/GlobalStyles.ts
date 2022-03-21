@@ -28,12 +28,12 @@ body {
 
   &::-webkit-scrollbar-track {
     background: ${(props) => props.theme.colors.primary};
-    //border-radius: 8px;
+    /* border-radius: 8px; */
   }
 
   &::-webkit-scrollbar-thumb {
     background: ${(props) => props.theme.colors.secondary};
-    border-radius: 8px;
+    /* border-radius: 8px; */
   }
 
   &::-webkit-scrollbar-thumb:hover {

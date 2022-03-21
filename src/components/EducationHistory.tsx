@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Container } from "../styles/components/EducationHistory";
 
@@ -27,4 +27,4 @@ const EducationHistory: React.FC = () => {
   );
 };
 
-export default EducationHistory;
+export default memo(EducationHistory);

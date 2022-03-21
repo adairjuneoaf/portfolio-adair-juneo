@@ -18,8 +18,6 @@ export const Content = styled.div`
   flex-direction: row;
   justify-content: flex-start;
 
-  gap: 3.75rem;
-
   .profileInfos {
     flex: 1;
   }
@@ -62,8 +60,6 @@ export const Content = styled.div`
   @media only screen and (max-width: 600px) {
     display: flex;
     flex-direction: column;
-
-    gap: 1.875rem;
 
     .profileProjects {
       .cardsProjects {

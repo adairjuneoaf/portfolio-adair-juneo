@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { memo } from "react";
 
 import { FiCalendar, FiUser, FiClock, FiFileText } from "react-icons/fi";
 
@@ -47,4 +47,4 @@ const CardPublication: React.FC<CardPublicationProps> = ({ slug, title, author, 
   );
 };
 
-export default CardPublication;
+export default memo(CardPublication);

@@ -13,7 +13,7 @@ import CardPublication from "../../components/CardPublication";
 import SpinnerLoading from "../../components/SpinnerLoading";
 import HeaderBlog from "../../components/HeaderBlog";
 
-import { Content } from "../../styles/pages/blog";
+import { Container, Content } from "../../styles/pages/blog";
 
 interface PublicationProps {
   id: string;
@@ -36,16 +36,16 @@ const PagePosts: NextPage<HomeProps> = ({ dataPrismic }) => {
   }
 
   return (
-    <React.Fragment>
-      <main className="postsPublished">
-        <HeaderBlog isDisplayIcon={false} titleHeader={"Publicações e artigos"} />
-        <Content>
-          {dataPrismic.map((post: PublicationProps) => (
-            <CardPublication key={post.id} {...post} />
-          ))}
-        </Content>
-      </main>
-    </React.Fragment>
+    <Container>
+      <HeaderBlog isDisplayIcon={false} titleHeader={"Publicações e artigos"} />
+      {/* <main className="postsPublished"> */}
+      <Content>
+        {dataPrismic.map((post: PublicationProps) => (
+          <CardPublication key={post.id} {...post} />
+        ))}
+      </Content>
+      {/* </main> */}
+    </Container>
   );
 };
 
@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { dataPrismic },
-    revalidate: 60 * 60 * 4, // Horas
+    revalidate: 60 * 60 * 1, // 1 Hora
   };
 };
 

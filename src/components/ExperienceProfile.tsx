@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Container } from "../styles/components/ExperienceProfile";
 
@@ -27,4 +27,4 @@ const ExperienceProfile: React.FC = () => {
   );
 };
 
-export default ExperienceProfile;
+export default memo(ExperienceProfile);

@@ -10,10 +10,17 @@ import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 
 import HeaderLatestPublications from "../components/HeaderLatestPublications";
+import TechnologiesProfile from "../components/TechnologiesProfile";
+import ExperienceProfile from "../components/ExperienceProfile";
+import EducationHistory from "../components/EducationHistory";
 import CardPublication from "../components/CardPublication";
-import HeaderProjects from "../components/HeaderProjects";
 import SpinnerLoading from "../components/SpinnerLoading";
+import HeaderProjects from "../components/HeaderProjects";
 import CardProject from "../components/CardProject";
+import DataProfile from "../components/DataProfile";
+import Profile from "../components/Profile";
+
+import { Content } from "../styles/pages/index";
 
 interface CardProjectProps {
   id: number;
@@ -46,7 +53,14 @@ const Home: NextPage<HomeProps> = ({ dataGitHub, dataPrismic }) => {
   }
 
   return (
-    <React.Fragment>
+    <Content>
+      <aside className="profileInfos">
+        <Profile />
+        <DataProfile />
+        <TechnologiesProfile />
+        <ExperienceProfile />
+        <EducationHistory />
+      </aside>
       <main className="profileProjects">
         <HeaderLatestPublications />
         <div className="cardsPublications">
@@ -61,7 +75,7 @@ const Home: NextPage<HomeProps> = ({ dataGitHub, dataPrismic }) => {
           ))}
         </div>
       </main>
-    </React.Fragment>
+    </Content>
   );
 };
 
@@ -95,7 +109,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { dataGitHub, dataPrismic },
-    revalidate: 60 * 60 * 4, // 4 Horas
+    revalidate: 60 * 60 * 1, // 1 Hora
   };
 };
 

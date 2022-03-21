@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import useFetch from "../hooks/useFetch";
 
@@ -27,4 +27,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default memo(Profile);

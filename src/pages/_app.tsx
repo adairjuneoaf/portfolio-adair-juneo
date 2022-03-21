@@ -6,17 +6,12 @@ import { ThemeProvider } from "styled-components";
 
 import ApiGitHubProvider from "../contexts/ApiGitHubContext";
 
-import TechnologiesProfile from "../components/TechnologiesProfile";
-import ExperienceProfile from "../components/ExperienceProfile";
-import EducationHistory from "../components/EducationHistory";
-import DataProfile from "../components/DataProfile";
 import FooterPage from "../components/FooterPage";
-import Profile from "../components/Profile";
 
 import GlobalStyles from "../styles/GlobalStyles";
 import theme from "../styles/theme";
 
-import { Container, Content } from "../styles/pages/index";
+import { Container } from "../styles/pages/index";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -27,16 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <ApiGitHubProvider>
           <Container>
-            <Content>
-              <aside className="profileInfos">
-                <Profile />
-                <DataProfile />
-                <TechnologiesProfile />
-                <ExperienceProfile />
-                <EducationHistory />
-              </aside>
-              <Component {...pageProps} />
-            </Content>
+            <Component {...pageProps} />
             <FooterPage />
           </Container>
         </ApiGitHubProvider>

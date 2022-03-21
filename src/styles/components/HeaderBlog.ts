@@ -54,7 +54,7 @@ export const Header = styled.header`
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  /* @media only screen and (max-width: 600px) {
     margin-top: 1.875rem;
-  }
+  } */
 `;

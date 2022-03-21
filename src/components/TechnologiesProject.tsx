@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Container } from "../styles/components/TechnologiesProject";
 
 interface TechnologiesProjectProps {
@@ -17,4 +17,4 @@ const TechnologiesProject: React.FC<TechnologiesProjectProps> = ({ topics }) => 
   );
 };
 
-export default TechnologiesProject;
+export default memo(TechnologiesProject);

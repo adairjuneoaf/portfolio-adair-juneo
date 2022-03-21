@@ -1,16 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Container } from "../styles/components/DataProfile";
 
 import { FiBriefcase, FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiTwitter } from "react-icons/fi";
-
-// import Briefcase from "../assets/svg/briefcase.svg";
-// import GitHub from "../assets/svg/github.svg";
-// import Globe from "../assets/svg/globe.svg";
-// import Linkedin from "../assets/svg/linkedin.svg";
-// import Mail from "../assets/svg/mail.svg";
-// import MapPin from "../assets/svg/map-pin.svg";
-// import Twitter from "../assets/svg/twitter.svg";
 
 const DataProfile: React.FC = () => {
   let fontSizeIcons: number = 24;
@@ -70,4 +62,4 @@ const DataProfile: React.FC = () => {
   );
 };
 
-export default DataProfile;
+export default memo(DataProfile);
